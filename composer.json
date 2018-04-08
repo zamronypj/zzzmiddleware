@@ -1,0 +1,25 @@
+{
+    "name": "juhara/zzzmiddleware",
+    "description": "A cache middleware for slim framework (3.0)",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Zamrony P. Juhara",
+            "email": "zamronypj@yahoo.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Juhara\\CacheMiddleware\\" : "src/"
+        }
+    },
+    "require" : {
+        "php" : ">=5.4",
+        "slim/slim": "^3.0",
+        "juhara/zzzcache" : "~1.0"
+    },
+    "require-dev" : {
+        "php" : ">=5.6",
+        "phpunit/phpunit": "^5"
+    }
+}
