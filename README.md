@@ -54,7 +54,7 @@ Run through composer
 
     $app = new App($settings);
     ...
-    $app->add(CacheCacheMiddleware::class);
+    $app->add(CacheMiddleware::class);
 
 ### Create Proper Configuration
 
