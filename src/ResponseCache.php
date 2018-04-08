@@ -41,6 +41,13 @@ final class ResponseCache implements Cacheable
      */
     private $ttl;
 
+    /**
+     * constructor
+     * @param Request  $request  request instance
+     * @param Response $response response instance
+     * @param callable $next     next middleware
+     * @param int      $ttl      time to live in millisecond
+     */
     public function __construct(
         Request $request,
         Response $response,
