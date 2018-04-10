@@ -63,7 +63,7 @@ class CacheMiddleware
     }
 
     /**
-     * metod that is called when our middleware is triggered
+     * method that is called when our middleware is triggered
      * @param  Request  $request  request instance
      * @param  Response $response response instance
      * @param  callable $next     next middleware
