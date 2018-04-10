@@ -1,8 +1,8 @@
 <?php
 namespace Juhara\CacheMiddleware;
 
-use Psr\Http\ServerRequestInterface as Request;
-use Psr\Http\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Psr\Http\Message\ResponseInterface as Response;
 use Juhara\ZzzCache\Contracts\Cacheable;
 
 /**
