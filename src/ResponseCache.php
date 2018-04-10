@@ -67,7 +67,8 @@ final class ResponseCache implements Cacheable
     public function data()
     {
         $next = $this->next;
-        return (string) $next($this->request, $this->response);
+        $response = $next($this->request, $this->response);
+        return (string) $response->getBody();
     }
 
     /**
