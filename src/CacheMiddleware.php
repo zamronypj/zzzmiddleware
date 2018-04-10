@@ -4,7 +4,7 @@ namespace Juhara\CacheMiddleware;
 
 use Psr\Http\ServerRequestInterface as Request;
 use Psr\Http\ResponseInterface as Response;
-use Juhara\SlimCache\Contracts\CacheInterface;
+use Juhara\ZzzCache\Contracts\CacheInterface;
 
 /**
  * cache middleware that retrieve content from cache if available
