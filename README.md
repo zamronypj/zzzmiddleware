@@ -62,7 +62,12 @@ Run through composer
 If using `Juhara\ZzzCache\Storages\File` as storage, then you need to make sure
 that directory of cache is writeable by web server.
 
-## Issue and Improvement contribution
+## Example
+
+See [example application](htpps://github.com/zamronypj/zzzappexample) to understand
+how to use CacheMiddleware.
+
+## Contributing
 
 Just create PR if you want to improve it.
 
