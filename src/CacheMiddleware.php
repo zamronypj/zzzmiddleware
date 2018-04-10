@@ -53,7 +53,7 @@ class CacheMiddleware
         callable $next
     ) {
         if (! $this->cache->has($url)) {
-            $cacheble = $this->responseCacheFactory
+            $cacheable = $this->responseCacheFactory
                 ->request($request)
                 ->response($response)
                 ->next($next)
