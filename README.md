@@ -64,7 +64,7 @@ that directory of cache is writeable by web server.
 
 ## Example
 
-See [example application](htpps://github.com/zamronypj/zzzappexample) to understand
+See [example application](https://github.com/zamronypj/zzzappexample) to understand
 how to use CacheMiddleware.
 
 ## Contributing
