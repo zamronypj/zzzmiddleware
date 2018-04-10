@@ -58,7 +58,7 @@ class CacheMiddleware
                 ->response($response)
                 ->next($next)
                 ->build();
-            $this->cache>add($url, $cacheable);
+            $this->cache->add($url, $cacheable);
         }
     }
 
