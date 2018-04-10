@@ -3,7 +3,7 @@ namespace Juhara\CacheMiddleware;
 
 use Psr\Http\ServerRequestInterface as Request;
 use Psr\Http\ResponseInterface as Response;
-use Juhara\ZzzCahe\Cacheable;
+use Juhara\ZzzCache\Contracts\Cacheable;
 
 /**
  * Cache implementation for response
