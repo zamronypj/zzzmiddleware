@@ -4,6 +4,7 @@ Cache middleware for Slim Framework 3.0
 # Requirement
 - [PHP >= 5.4](https://php.net)
 - [Composer](https://getcomposer.org)
+- [Slim Framework 3.0](https://slimframework.com)
 - [ZzzCache](https://github/zamronypj/zzzcache)
 - [ZzzFile](https://github.com/zamronypj/zzzfile)
 
