@@ -18,8 +18,7 @@
     "require" : {
         "php" : ">=5.4",
         "slim/slim": "^3.0",
-        "juhara/zzzcache" : "~1.0",
-        "juhara/zzzfile" : "~1.0"
+        "juhara/zzzcache" : "~1.0"
     },
     "require-dev" : {
         "php" : ">=5.6",
