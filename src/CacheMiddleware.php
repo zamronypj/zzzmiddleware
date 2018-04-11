@@ -63,6 +63,25 @@ class CacheMiddleware
     }
 
     /**
+     * get response content from cache of available or get response
+     * from next middleware
+     *
+     * @param  Request  $request  request instance
+     * @param  Response $response response instance
+     * @param  callable $next     next middleware
+     * @return string response content
+     */
+    private function getResponseFromCacheIfAvail(
+        Request $request,
+        Response $response,
+        callable $next
+    ) {
+        $url = (string) $request->getUri();
+        $this->addCacheIfNotExist($url, $request, $response, $next);
+        return = $this->cache->get($url);
+    }
+
+    /**
      * method that is called when our middleware is triggered
      * @param  Request  $request  request instance
      * @param  Response $response response instance
@@ -71,9 +90,11 @@ class CacheMiddleware
      */
     public function __invoke(Request $request, Response $response, callable $next)
     {
-        $url = (string) $request->getUri();
-        $this->addCacheIfNotExist($url, $request, $response, $next);
-        $response->getBody()->write($this->cache->get($url));
+        $content = $this->getResponseFromCacheIfAvail($request, $response, $next);
+        //we have full content so
+        //rewind to make sure that we override any previously stored content.
+        $response->getBody()->rewind();
+        $response->getBody()->write($content);
         return $response;
     }
 }
