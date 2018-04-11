@@ -6,7 +6,6 @@ Cache middleware for Slim Framework 3.0
 - [Composer](https://getcomposer.org)
 - [Slim Framework 3.0](https://slimframework.com)
 - [ZzzCache](https://github/zamronypj/zzzcache)
-- [ZzzFile](https://github.com/zamronypj/zzzfile)
 
 # Installation
 Run through composer
