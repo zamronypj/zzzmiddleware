@@ -1,5 +1,5 @@
 # zzzmiddleware
-Cache middleware for Slim Framework 3.0
+Cache middleware for Slim Framework 3.0 using ZzzCache
 
 # Requirement
 - [PHP >= 5.4](https://php.net)
