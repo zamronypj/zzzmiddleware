@@ -78,7 +78,7 @@ class CacheMiddleware
     ) {
         $url = (string) $request->getUri();
         $this->addCacheIfNotExist($url, $request, $response, $next);
-        return = $this->cache->get($url);
+        return $this->cache->get($url);
     }
 
     /**
