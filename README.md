@@ -21,7 +21,7 @@ Run through composer
     use Juhara\ZzzCache\Contracts\CacheInterface;
     use Juhara\ZzzCache\Cache;
     use Juhara\ZzzCache\Storages\File;
-    use Juhara\ZzzCache\Helpers\TimeUtility;
+    use Juhara\ZzzCache\Helpers\ExpiryCalculator;
     use Juhara\ZzzCache\Helpers\Md5Hash;
 
     $container[CacheInterface::class] = function ($c) {
@@ -35,7 +35,7 @@ Run through composer
                 'app/storages/cache/',
                 'cache'
             ),
-            new TimeUtility()
+            new ExpiryCalculator()
         );
     };
 
