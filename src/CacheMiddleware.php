@@ -5,6 +5,7 @@ namespace Juhara\CacheMiddleware;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 use Juhara\ZzzCache\Contracts\CacheInterface;
+use Juhara\CacheMiddleware\Contracts\ResponseCacheFactoryInterface;
 
 /**
  * cache middleware that retrieve content from cache if available
@@ -23,7 +24,7 @@ class CacheMiddleware
 
     /**
      * response cache factory instance
-     * @var ResponseCacheFactory
+     * @var ResponseCacheFactoryInterface
      */
     private $responseCacheFactory;
 
@@ -32,8 +33,10 @@ class CacheMiddleware
      * @param CacheInterface       $cache   cache instance
      * @param ResponseCacheFactory $factory response cache factory instance
      */
-    public function __construct(CacheInterface $cache, ResponseCacheFactory $factory)
-    {
+    public function __construct(
+        CacheInterface $cache,
+        ResponseCacheFactoryInterface $factory
+    ) {
         $this->cache = $cache;
         $this->responseCacheFactory = $factory;
     }
@@ -56,8 +59,7 @@ class CacheMiddleware
             $cacheable = $this->responseCacheFactory
                 ->request($request)
                 ->response($response)
-                ->next($next)
-                ->build();
+                ->build($next, null);
             $this->cache->add($url, $cacheable);
         }
     }

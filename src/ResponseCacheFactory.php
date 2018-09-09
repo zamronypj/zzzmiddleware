@@ -3,12 +3,13 @@ namespace Juhara\CacheMiddleware;
 
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
+use Juhara\CacheMiddleware\Contracts\ResponseCacheFactoryInterface;
 
 /**
- * helper class for intializing ResponseCache instance
+ * helper class for initializing ResponseCache instance
  * @author Zamrony P. Juhara <zamronypj@yahoo.com>
  */
-final class ResponseCacheFactory
+final class ResponseCacheFactory implements ResponseCacheFactoryInterface
 {
     /**
      * response instance
@@ -57,37 +58,18 @@ final class ResponseCacheFactory
     }
 
     /**
-     * set next middleware
-     * @param  callable $nextCallback next middleware
-     * @return ResponseCacheFactory    current instance
+     * create Cacheable interface instance
+     * @param callable $nextCallback callback to get data in Cacheable instance
+     * @param int   $ttl   time to live
+     * @return Cacheable new instance of Cacheable interface
      */
-    public function next(callable $nextCallback)
+    public function build($nextCallback, $ttl)
     {
-        $this->nextCallback = $nextCallback;
-        return $this;
-    }
-
-    /**
-     * set current time to live
-     * @param  int $ttl time to live
-     * @return ResponseCacheFactory current instance
-     */
-    public function ttl($ttl)
-    {
-        $this->ttl = $ttl;
-        return $this;
-    }
-
-    /**
-     * initialize ResponseCache
-     * @return ResponseCache response cache instance
-     */
-    public function build()
-    {
+        $this->ttl = empty($ttl) ? ResponseCache::TTL_DEFAULT : $ttl;
         return new ResponseCache(
             $this->requestInstance,
             $this->responseInstance,
-            $this->nextCallback,
+            $nextCallback,
             $this->ttl
         );
     }
